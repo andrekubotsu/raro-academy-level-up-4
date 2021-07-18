@@ -1,7 +1,6 @@
 import 'package:bloco_de_notas/src/shared/constants/app_colors.dart';
+import 'package:bloco_de_notas/src/shared/constants/app_text_styles.dart';
 import 'package:flutter/material.dart';
-import 'package:focused_menu/focused_menu.dart';
-import 'package:focused_menu/modals.dart';
 
 class NoteCardWidget extends StatefulWidget {
   final String titleText;
@@ -30,77 +29,66 @@ class NoteCardWidget extends StatefulWidget {
 class _NoteCardWidgetState extends State<NoteCardWidget> {
   @override
   Widget build(BuildContext context) {
-    return FocusedMenuHolder(
-      menuWidth: 140,
-      menuOffset: 10,
-      animateMenuItems: false,
-      menuBoxDecoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(5),
-        border: Border.all(
-          color: Colors.black.withOpacity(0.24),
-        ),
-      ),
-      blurBackgroundColor: Colors.white,
-      blurSize: 0,
-      onPressed: () {},
-      menuItems: [
-        FocusedMenuItem(
-          // backgroundColor: AppColors.lightGrey,
-          title: Row(
-            children: [
-              Icon(
-                Icons.edit,
-                color: Colors.black.withOpacity(0.54),
-                size: 18,
-              ),
-              Text(" Editar"),
-            ],
-          ),
-          onPressed: () {},
-        ),
-        FocusedMenuItem(
-          // backgroundColor: AppColors.lightGrey,
-          title: Row(
-            children: [
-              Icon(
-                Icons.share,
-                color: Colors.black.withOpacity(0.54),
-                size: 18,
-              ),
-              Text(" Compartilhar"),
-            ],
-          ),
-          onPressed: () {},
-        ),
-        FocusedMenuItem(
-          // backgroundColor: AppColors.lightGrey,
-          title: Row(
-            children: [
-              Icon(
-                Icons.favorite,
-                color: Colors.black.withOpacity(0.54),
-                size: 18,
-              ),
-              Text(" Favoritar"),
-            ],
-          ),
-          onPressed: () {},
-        ),
-        FocusedMenuItem(
-          // backgroundColor: AppColors.lightGrey,
-          title: Row(
-            children: [
-              Icon(
-                Icons.delete,
-                color: Colors.black.withOpacity(0.54),
-                size: 18,
-              ),
-              Text(" Deletar"),
-            ],
-          ),
-          onPressed: () {},
-        ),
+    return PopupMenuButton(
+      itemBuilder: (context) => [
+        PopupMenuItem(
+            child: Row(
+          children: [
+            Icon(
+              Icons.edit,
+              color: Colors.black.withOpacity(0.54),
+              size: 18,
+            ),
+            Text(
+              " Editar",
+              style: AppTextStyles.notePopMenu,
+            ),
+          ],
+        )),
+        PopupMenuItem(
+            child: Row(
+          children: [
+            Icon(
+              Icons.share,
+              color: Colors.black.withOpacity(0.54),
+              size: 18,
+            ),
+            Text(
+              " Compartilhar",
+              style: AppTextStyles.notePopMenu,
+            ),
+          ],
+        )),
+        PopupMenuItem(
+            child: Row(
+          children: [
+            Icon(
+              Icons.favorite,
+              color: Colors.black.withOpacity(0.54),
+              size: 18,
+            ),
+            Text(
+              " Favoritar",
+              style: AppTextStyles.notePopMenu,
+            ),
+          ],
+        )),
+        PopupMenuItem(
+            child: Row(
+          children: [
+            Icon(
+              Icons.delete,
+              color: Colors.black.withOpacity(0.54),
+              size: 18,
+            ),
+            Text(
+              " Deletar",
+              style: AppTextStyles.notePopMenu,
+            ),
+          ],
+        ))
       ],
+      //onLongPress: () {},
       child: Card(
         color: AppColors.lightGrey,
         shadowColor: Colors.black,

@@ -14,4 +14,9 @@ class AppTextStyles {
       fontWeight: FontWeight.w400,
       fontSize: 24,
       color: AppColors.darkPurple);
+
+  static TextStyle notePopMenu = TextStyle(
+    color: AppColors.black54,
+    fontSize: 16,
+  );
 }

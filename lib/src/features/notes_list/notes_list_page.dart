@@ -4,11 +4,10 @@ import 'package:bloco_de_notas/src/features/new_note/new_note.dart';
 import 'package:bloco_de_notas/src/features/notes_list/notes_list_controller.dart';
 import 'package:bloco_de_notas/src/shared/constants/app_colors.dart';
 import 'package:bloco_de_notas/src/shared/widgets/add_new_note_button_widget.dart';
+
 import 'package:bloco_de_notas/src/shared/widgets/note_card_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-import 'package:focused_menu/focused_menu.dart';
-import 'package:focused_menu/modals.dart';
 
 class NotesListPage extends StatefulWidget {
   NotesListPage({Key? key}) : super(key: key);
@@ -55,17 +54,45 @@ class _NotesListPageState extends State<NotesListPage> {
                 mainAxisSpacing: 5,
                 crossAxisCount: 2,
                 itemCount: controller.data.length,
-                itemBuilder: (BuildContext context, int index) =>
-                    NoteCardWidget(
-                  titleText: controller.data[index]["title"],
-                  noteColor: controller.data[index]["noteColor"],
-                  isFavorite: controller.data[index]["isFavorite"],
-                  hasAttachedFile: controller.data[index]["hasAttachedFile"],
-                  isScheduled: controller.data[index]["isScheduled"],
-                  noteText: controller.data[index]["noteText"],
-                  date: controller.data[index]["date"],
-                ),
-                staggeredTileBuilder: (int index) => StaggeredTile.fit(1),
+                itemBuilder: (BuildContext context, int index) {
+                  if (index == 0) {
+                    return Padding(
+                      padding: const EdgeInsets.only(
+                          left: 50, right: 45, top: 0, bottom: 16),
+                      child: TextField(
+                        decoration: InputDecoration(
+                            suffixIcon: Icon(
+                              Icons.search,
+                              size: 24,
+                            ),
+                            labelText: "Pesquisar",
+                            labelStyle: TextStyle(
+                              fontSize: 20,
+                              color: Colors.black38,
+                            ),
+                            contentPadding: EdgeInsets.all(0)),
+                      ),
+                    );
+                  } else {
+                    return NoteCardWidget(
+                      titleText: controller.data[index]["title"],
+                      noteColor: controller.data[index]["noteColor"],
+                      isFavorite: controller.data[index]["isFavorite"],
+                      hasAttachedFile: controller.data[index]
+                          ["hasAttachedFile"],
+                      isScheduled: controller.data[index]["isScheduled"],
+                      noteText: controller.data[index]["noteText"],
+                      date: controller.data[index]["date"],
+                    );
+                  }
+                },
+                staggeredTileBuilder: (int index) {
+                  if (index == 0) {
+                    return StaggeredTile.fit(2);
+                  } else {
+                    return StaggeredTile.fit(1);
+                  }
+                },
               ),
             ),
           ),

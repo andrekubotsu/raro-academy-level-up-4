@@ -5,6 +5,7 @@ var inputDate = formatDate(DateTime.now(), [dd, '-', mm, '-', yyyy]);
 
 class NotesListController {
   List data = [
+    {},
     {
       "title": "Não esquecer",
       "noteText":
