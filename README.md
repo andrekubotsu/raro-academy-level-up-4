@@ -1,16 +1,20 @@
-# bloco_de_notas
+# LevelUP#4 (#5?)
 
-A new Flutter project.
+It was asked to continue the develpment of a Notes App. We had to build a specifc screen (see screen shots). We had a Figma design project to follow.
 
-## Getting Started
+Features needed:
+- widget componentization
+- some navigation
 
-This project is a starting point for a Flutter application.
+Features added (plus what was needed):
+- mock data (at controller);
 
-A few resources to get you started if this is your first Flutter project:
+Dependencies:
+- flutter_staggered_grid_view: ^0.4.0
+- date_format: ^2.0.2
+- focused_menu: ^1.0.5 (for context menu, unfortunatelly it is not exactly the same as figma's project)
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![Screenshot 1](https://github.com/andrekubotsu/raro-academy-level-up-4/blob/main/screen1.png)
+![Screenshot 2](https://github.com/andrekubotsu/raro-academy-level-up-4/blob/main/screen2.png)
+![Screenshot 3](https://github.com/andrekubotsu/raro-academy-level-up-4/blob/main/screen3.png)
+![Screenshot 4](https://github.com/andrekubotsu/raro-academy-level-up-4/blob/main/screen4.png)
