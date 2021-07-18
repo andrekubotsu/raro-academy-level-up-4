@@ -21,7 +21,8 @@ class _ContextMenuHolderWidgetState extends State<ContextMenuHolderWidget> {
   Size? childSize;
 
   getOffset() {
-    RenderBox renderBox = containerKey.currentContext.findRenderObject();
+    RenderBox renderBox =
+        containerKey.currentContext!.findRenderObject() as RenderBox;
     Size size = renderBox.size;
     Offset offset = renderBox.localToGlobal(Offset.zero);
     setState(() {
