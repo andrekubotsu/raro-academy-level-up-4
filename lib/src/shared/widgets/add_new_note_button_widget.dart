@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'package:bloco_de_notas/src/shared/constants/app_colors.dart';
 
 class AddNewNoteButton extends StatelessWidget {
