@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
             trackColor: MaterialStateProperty.all(AppColors.lightGrey),
             radius: Radius.circular(10)),
       ),
-      home: NotesListPage(),
+      home: SplashPage(),
       locale: Locale('pt', 'BR'),
     );
   }

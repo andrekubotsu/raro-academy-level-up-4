@@ -1,3 +1,9 @@
+// ########################################
+// Inicio de implementação baseado no artigo:
+// https://retroportalstudio.medium.com/focused-pop-up-menu-in-flutter-15766d0ab414
+// dos criadores do package que usei
+// ########################################
+
 import 'dart:ui';
 
 import 'package:flutter/material.dart';

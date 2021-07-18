@@ -1,6 +1,8 @@
 import 'package:bloco_de_notas/src/shared/constants/app_colors.dart';
-import 'package:bloco_de_notas/src/shared/widgets/context_menu_widget/context_menu_holder.dart';
+//import 'package:bloco_de_notas/src/shared/widgets/context_menu_widget/context_menu_holder.dart';
 import 'package:flutter/material.dart';
+import 'package:focused_menu/focused_menu.dart';
+import 'package:focused_menu/modals.dart';
 
 class NoteCardWidget extends StatefulWidget {
   final String titleText;
@@ -29,8 +31,69 @@ class NoteCardWidget extends StatefulWidget {
 class _NoteCardWidgetState extends State<NoteCardWidget> {
   @override
   Widget build(BuildContext context) {
-    return ContextMenuHolderWidget(
-      menuContent: Text('teste'),
+    return FocusedMenuHolder(
+      menuOffset: 10,
+      menuWidth: 184,
+      onPressed: () {},
+      //menuBoxDecoration: BoxDecoration(),
+      menuItems: [
+        FocusedMenuItem(
+          //backgroundColor: AppColors.lightGrey,
+          title: Row(
+            children: [
+              Icon(
+                Icons.edit,
+                color: Colors.black.withOpacity(0.54),
+                size: 18,
+              ),
+              Text(" Editar"),
+            ],
+          ),
+          onPressed: () {},
+        ),
+        FocusedMenuItem(
+          // backgroundColor: AppColors.lightGrey,
+          title: Row(
+            children: [
+              Icon(
+                Icons.share,
+                color: Colors.black.withOpacity(0.54),
+                size: 18,
+              ),
+              Text(" Compartilhar"),
+            ],
+          ),
+          onPressed: () {},
+        ),
+        FocusedMenuItem(
+          // backgroundColor: AppColors.lightGrey,
+          title: Row(
+            children: [
+              Icon(
+                Icons.favorite,
+                color: Colors.black.withOpacity(0.54),
+                size: 18,
+              ),
+              Text(" Favoritar"),
+            ],
+          ),
+          onPressed: () {},
+        ),
+        FocusedMenuItem(
+          // backgroundColor: AppColors.lightGrey,
+          title: Row(
+            children: [
+              Icon(
+                Icons.delete,
+                color: Colors.black.withOpacity(0.54),
+                size: 18,
+              ),
+              Text(" Deletar"),
+            ],
+          ),
+          onPressed: () {},
+        ),
+      ],
       child: Card(
         color: AppColors.lightGrey,
         shadowColor: Colors.black,

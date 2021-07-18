@@ -15,8 +15,6 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    timeDilation = 5.0; //slows donw hero animation
-
     return SafeArea(
       top: true,
       bottom: true,
