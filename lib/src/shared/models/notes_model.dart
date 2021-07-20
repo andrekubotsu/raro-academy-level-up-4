@@ -1,32 +1,42 @@
 import 'dart:convert';
 
-class NotesModel {
+import 'package:flutter/material.dart';
+
+class Note {
   String title;
   String noteText;
-  DateTime date;
-  String attachFile;
   bool isFavorite;
-  NotesModel({
+  bool isScheduled;
+  bool hasAttachedFile;
+  String date;
+  Color noteColor;
+  Note({
     required this.title,
     required this.noteText,
-    required this.date,
-    required this.attachFile,
     required this.isFavorite,
+    required this.isScheduled,
+    required this.hasAttachedFile,
+    required this.date,
+    required this.noteColor,
   });
 
-  NotesModel copyWith({
+  Note copyWith({
     String? title,
     String? noteText,
-    DateTime? date,
-    String? attachFile,
     bool? isFavorite,
+    bool? isScheduled,
+    bool? hasAttachedFile,
+    String? date,
+    Color? noteColor,
   }) {
-    return NotesModel(
+    return Note(
       title: title ?? this.title,
       noteText: noteText ?? this.noteText,
-      date: date ?? this.date,
-      attachFile: attachFile ?? this.attachFile,
       isFavorite: isFavorite ?? this.isFavorite,
+      isScheduled: isScheduled ?? this.isScheduled,
+      hasAttachedFile: hasAttachedFile ?? this.hasAttachedFile,
+      date: date ?? this.date,
+      noteColor: noteColor ?? this.noteColor,
     );
   }
 
@@ -34,50 +44,57 @@ class NotesModel {
     return {
       'title': title,
       'noteText': noteText,
-      'date': date.millisecondsSinceEpoch,
-      'attachFile': attachFile,
       'isFavorite': isFavorite,
+      'isScheduled': isScheduled,
+      'hasAttachedFile': hasAttachedFile,
+      'date': date,
+      'noteColor': noteColor.value,
     };
   }
 
-  factory NotesModel.fromMap(Map<String, dynamic> map) {
-    return NotesModel(
+  factory Note.fromMap(Map<String, dynamic> map) {
+    return Note(
       title: map['title'],
       noteText: map['noteText'],
-      date: DateTime.fromMillisecondsSinceEpoch(map['date']),
-      attachFile: map['attachFile'],
       isFavorite: map['isFavorite'],
+      isScheduled: map['isScheduled'],
+      hasAttachedFile: map['hasAttachedFile'],
+      date: map['date'],
+      noteColor: Color(map['noteColor']),
     );
   }
 
   String toJson() => json.encode(toMap());
 
-  factory NotesModel.fromJson(String source) =>
-      NotesModel.fromMap(json.decode(source));
+  factory Note.fromJson(String source) => Note.fromMap(json.decode(source));
 
   @override
   String toString() {
-    return 'NotesModel(title: $title, noteText: $noteText, date: $date, attachFile: $attachFile, isFavorite: $isFavorite)';
+    return 'Note(title: $title, noteText: $noteText, isFavorite: $isFavorite, isScheduled: $isScheduled, hasAttachedFile: $hasAttachedFile, date: $date, noteColor: $noteColor)';
   }
 
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
 
-    return other is NotesModel &&
+    return other is Note &&
         other.title == title &&
         other.noteText == noteText &&
+        other.isFavorite == isFavorite &&
+        other.isScheduled == isScheduled &&
+        other.hasAttachedFile == hasAttachedFile &&
         other.date == date &&
-        other.attachFile == attachFile &&
-        other.isFavorite == isFavorite;
+        other.noteColor == noteColor;
   }
 
   @override
   int get hashCode {
     return title.hashCode ^
         noteText.hashCode ^
+        isFavorite.hashCode ^
+        isScheduled.hashCode ^
+        hasAttachedFile.hashCode ^
         date.hashCode ^
-        attachFile.hashCode ^
-        isFavorite.hashCode;
+        noteColor.hashCode;
   }
 }

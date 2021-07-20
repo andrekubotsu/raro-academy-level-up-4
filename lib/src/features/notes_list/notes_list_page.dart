@@ -1,7 +1,7 @@
 import 'dart:ui';
 
 import 'package:bloco_de_notas/src/features/new_note/new_note.dart';
-import 'package:bloco_de_notas/src/features/notes_list/notes_list_controller.dart';
+import 'package:bloco_de_notas/src/shared/controllers/notes_list_controller.dart';
 import 'package:bloco_de_notas/src/shared/constants/app_colors.dart';
 import 'package:bloco_de_notas/src/shared/widgets/add_new_note_button_widget.dart';
 
@@ -42,13 +42,10 @@ class _NotesListPageState extends State<NotesListPage> {
           preferredSize: Size(MediaQuery.of(context).size.width, 86),
         ),
         body: Padding(
-          padding: const EdgeInsets.only(right: 10.0, top: 10),
+          padding: const EdgeInsets.only(right: 10, top: 10),
           child: Scrollbar(
             child: Padding(
-              padding: const EdgeInsets.only(
-                left: 10,
-                right: 18,
-              ),
+              padding: const EdgeInsets.only(right: 18.0, top: 10, left: 10),
               child: StaggeredGridView.countBuilder(
                 crossAxisSpacing: 5,
                 mainAxisSpacing: 5,
@@ -75,14 +72,13 @@ class _NotesListPageState extends State<NotesListPage> {
                     );
                   } else {
                     return NoteCardWidget(
-                      titleText: controller.data[index]["title"],
-                      noteColor: controller.data[index]["noteColor"],
-                      isFavorite: controller.data[index]["isFavorite"],
-                      hasAttachedFile: controller.data[index]
-                          ["hasAttachedFile"],
-                      isScheduled: controller.data[index]["isScheduled"],
-                      noteText: controller.data[index]["noteText"],
-                      date: controller.data[index]["date"],
+                      titleText: controller.data[index].title,
+                      noteColor: controller.data[index].noteColor,
+                      isFavorite: controller.data[index].isFavorite,
+                      hasAttachedFile: controller.data[index].hasAttachedFile,
+                      isScheduled: controller.data[index].isScheduled,
+                      noteText: controller.data[index].noteText,
+                      date: controller.data[index].date,
                     );
                   }
                 },

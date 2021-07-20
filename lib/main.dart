@@ -1,4 +1,4 @@
-import 'package:bloco_de_notas/src/features/notes_list/notes_list_page.dart';
+
 import 'package:bloco_de_notas/src/features/splash/splash_page.dart';
 import 'package:bloco_de_notas/src/shared/constants/app_colors.dart';
 import 'package:flutter/material.dart';
@@ -16,7 +16,6 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         scrollbarTheme: ScrollbarThemeData(
             isAlwaysShown: true,
-            showTrackOnHover: true,
             interactive: true,
             thickness: MaterialStateProperty.all(10),
             thumbColor: MaterialStateProperty.all(AppColors.lightPurple),
